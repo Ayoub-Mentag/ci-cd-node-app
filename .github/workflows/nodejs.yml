@@ -34,4 +34,4 @@ jobs:
 
       # Step 6: Deploy using Vercel CLI (CD)
       - name: Deploy to Vercel
-        run: npx vercel --prod --token=${{ fT01n0X0aJAFFtzjiWyh5EKa }}
+        run: npx vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
