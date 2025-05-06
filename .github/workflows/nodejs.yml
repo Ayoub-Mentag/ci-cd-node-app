@@ -30,7 +30,7 @@ jobs:
 
       # Step 5: Build the project (optional for Node.js, but important for frontend)
       - name: Build project
-        run: npm run build
+        run: echo "No build step needed for plain JS"
 
       # Step 6: Deploy using Vercel CLI (CD)
       - name: Deploy to Vercel
