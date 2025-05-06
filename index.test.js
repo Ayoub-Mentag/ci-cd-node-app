@@ -13,4 +13,3 @@ describe('GET /health', () => {
     expect(res.body.status).toBe('UP');
   });
 });
-
