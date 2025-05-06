@@ -1,28 +1,37 @@
-name: Node.js CI
+name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main  # Or your default branch
 
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      # Step 2: Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Install dependencies
-      run: npm install
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Run tests
-      run: npm test
+      # Step 4: Run tests (CI)
+      - name: Run tests
+        run: npm test
 
+      # Step 5: Build the project (optional for Node.js, but important for frontend)
+      - name: Build project
+        run: npm run build
+
+      # Step 6: Deploy using Vercel CLI (CD)
+      - name: Deploy to Vercel
+        run: npx vercel --prod --token=${{ fT01n0X0aJAFFtzjiWyh5EKa }}
