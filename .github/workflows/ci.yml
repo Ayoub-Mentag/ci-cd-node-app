@@ -26,6 +26,8 @@ jobs:
       - name: Update k8s manifest image tag (optional - if using version tags)
         run: |
           sed -i "s|image:.*|image: ${{ secrets.DOCKER_USERNAME }}/node-app:latest|" k8s/deployment.yaml
+          git config --global user.email "ayoubmentag21@gmail.com"
+          git config --global user.name "Ayoub-Mentag"
           git add k8s/deployment.yaml
           git commit -m "Update image tag"
           git push
