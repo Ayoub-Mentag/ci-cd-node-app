@@ -35,7 +35,7 @@ jobs:
           cat k8s/deployment.yaml
 
           git config --global user.email "ayoub_mentag@um5.ac.ma"
-          git config --global user.name "Ayoub Mentag"
+          git config --global user.name "Ayoub-Mentag"
           git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Ayoub-Mentag/ci-cd-node-app.git
 
           git add k8s/deployment.yaml
