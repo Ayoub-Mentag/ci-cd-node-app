@@ -30,9 +30,9 @@ jobs:
           sed -i "s|image: .*$|image: ayoubmentag/node-app:latest|" k8s/deployment.yaml
           echo "After update:"
           cat k8s/deployment.yaml
-          git config --global user.email "ayoubmentag21@gmail.com"
-          git config --global user.name "Ayoub-Mentag"
-          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Ayoub-Mentag/ci-cd-node-app
+          git config --global user.email "your-email@example.com"
+          git config --global user.name "Your Name"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Ayoub-Mentag/ci-cd-node-app.git
           git add k8s/deployment.yaml
           git commit -m "Update image tag"
           git push
