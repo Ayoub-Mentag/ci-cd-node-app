@@ -23,9 +23,13 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/node-app:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/node-app:latest
 
-      - name: Update k8s manifest image tag (optional - if using version tags)
+      - name: Check file and update image
         run: |
-          sed -i '' "s|image: .*$|image: ${{ secrets.DOCKER_USERNAME }}/node-app:latest|" k8s/deployment.yaml
+          ls -l k8s/deployment.yaml
+          cat k8s/deployment.yaml
+          sed -i "s|image: .*$|image: ayoubmentag/node-app:latest|" k8s/deployment.yaml
+          echo "After update:"
+          cat k8s/deployment.yaml
           git config --global user.email "ayoubmentag21@gmail.com"
           git config --global user.name "Ayoub-Mentag"
           git add k8s/deployment.yaml
