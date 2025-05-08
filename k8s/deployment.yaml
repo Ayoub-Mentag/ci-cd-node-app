@@ -14,6 +14,19 @@ spec:
     spec:
       containers:
         - name: node-app
-          image: ayoubmentag21401/node-app:1746704480
+          image: ayoubmentag21401/node-app:v1.0.0
           ports:
-            - containerPort: 3000
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: dockerhub
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app
+spec:
+  selector:
+    app: node-app
+  ports:
+    - port: 8080
+  type: LoadBalancer
