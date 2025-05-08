@@ -27,9 +27,6 @@ jobs:
           # Optionally also push latest for backward compatibility
           docker tag ${{ secrets.DOCKER_USERNAME }}/node-app:$VERSION ${{ secrets.DOCKER_USERNAME }}/node-app:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/node-app:latest
-
-      - name: Update image in deployment.yaml and push to repo
-        run: |
           echo "🔍 Showing current image in deployment.yaml:"
           cat k8s/deployment.yaml
 
