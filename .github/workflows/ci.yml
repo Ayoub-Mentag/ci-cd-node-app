@@ -31,7 +31,7 @@ jobs:
           cat k8s/deployment.yaml
 
           echo "🔧 Updating image line..."
-          # sed -i "s|image: .*$|image: ${{ secrets.DOCKER_USERNAME }}/node-app:${VERSION}|" k8s/deployment.yaml
+          sed -i "s|image: .*$|image: ${{ secrets.DOCKER_USERNAME }}/node-app:${VERSION}|" k8s/deployment.yaml
 
           echo "✅ After update:"
           cat k8s/deployment.yaml
