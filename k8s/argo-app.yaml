@@ -8,7 +8,6 @@ spec:
   source:
     repoURL: https://github.com/Ayoub-Mentag/ci-cd-node-app.git
     targetRevision: main
-    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: default
